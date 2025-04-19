@@ -10,7 +10,9 @@ const store = useTodoStore();
   <ContainerLayout>
    <h1 class="text-[50px] text-center font-700 mb-[30px]">ToDo</h1>
    <FieldTextarea />
-   <p>{{ store.fieldMessage }}</p>
+   <ul>
+    <li v-for="item in store.listTodos" :key="item.id">{{ item.text }}</li>
+   </ul>
   </ContainerLayout>
  </div>
 </template>
