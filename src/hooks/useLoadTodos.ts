@@ -1,12 +1,14 @@
-import { onMounted, watch, type Ref } from 'vue';
+import { useTodoStore } from '@/stores/store';
+import { onMounted, watch } from 'vue';
 
-export function useSaveLocal(listTodos: Ref) {
+export function useLoadTodos() {
+ const store = useTodoStore();
  onMounted(() => {
   const storedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
-  listTodos.value = [...storedTodos];
+  store.loadTodos(storedTodos);
  });
  watch(
-  listTodos,
+  store.listTodos,
   (newVal) => {
    localStorage.setItem('todos', JSON.stringify(newVal));
   },
