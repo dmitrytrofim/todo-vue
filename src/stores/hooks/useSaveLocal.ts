@@ -1,6 +1,6 @@
 import { onMounted, watch, type Ref } from 'vue';
 
-export function saveLocal(listTodos: Ref) {
+export function useSaveLocal(listTodos: Ref) {
  onMounted(() => {
   const storedTodos = JSON.parse(localStorage.getItem('todos') || '[]');
   listTodos.value = [...storedTodos];
