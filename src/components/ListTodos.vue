@@ -15,6 +15,9 @@ const store = useTodoStore();
    :complete="item.complete"
   />
  </VueDraggableNext>
+ <p v-show="store.listTodos.length === 0" class="text-[26px] font-500 text-center">
+  The to-do list is empty!
+ </p>
 </template>
 
 <style scoped></style>
